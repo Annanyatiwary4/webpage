@@ -10,97 +10,166 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #000000;
-            color: #ffffff;
+            background-color: #0a192f;
+            color: #ccd6f6;
+            overflow-x: hidden;
         }
 
         header {
-            background-color: #1e3a8a;
-            color: white;
-            padding: 1rem 2rem;
+            background-color: #112240;
+            color: #64ffda;
+            padding: 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.8);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
 
         header h1 {
             margin: 0;
-            font-size: 1.8rem;
+            font-size: 2rem;
+            font-weight: 600;
         }
 
         nav a {
-            color: white;
+            color: #64ffda;
             text-decoration: none;
             margin-left: 1.5rem;
-            font-size: 1rem;
+            font-size: 1.2rem;
+            position: relative;
+            transition: color 0.3s;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            color: #ffffff;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(180deg, #0a192f 0%, #112240 100%);
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: fadeIn 2s;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            animation: fadeIn 3s;
+        }
+
+        .hero .btn {
+            margin-top: 2rem;
+            background-color: #64ffda;
+            color: #0a192f;
+            padding: 1rem 2rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: #52e0c4;
+            transform: scale(1.1);
         }
 
         section {
-            padding: 2rem;
-            margin: 1rem auto;
-            max-width: 900px;
-            background: #1f2937;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            padding: 4rem 2rem;
+            margin: 5rem auto;
+            max-width: 1000px;
+            background: #112240;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            transform: translateY(50px);
+            opacity: 0;
+            animation: fadeInUp 1s forwards;
+        }
+
+        section:nth-child(even) {
+            animation-delay: 0.5s;
         }
 
         h2 {
-            border-bottom: 2px solid #2563eb;
-            padding-bottom: 0.5rem;
+            color: #64ffda;
+            font-size: 2rem;
             margin-bottom: 1rem;
+            text-align: center;
         }
 
-        .skills .skill {
-            margin-bottom: 1.5rem;
-        }
-
-        .skills .skill-bar {
-            background: #374151;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .skills .skill-bar div {
-            height: 10px;
-            background: #2563eb;
-            width: 0;
-            transition: width 1s;
-        }
-
-        .btn {
-            background-color: #2563eb;
-            color: white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-
-        .btn:hover {
-            background-color: #1d4ed8;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
+        p, ul {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #8892b0;
         }
 
         ul li {
             margin-bottom: 1rem;
-            line-height: 1.6;
         }
 
         a {
-            color: #3b82f6;
+            color: #64ffda;
         }
 
         a:hover {
-            color: #60a5fa;
+            color: #ffffff;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #0a192f;
+            color: #8892b0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #64ffda;
+            color: #0a192f;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 1.2rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #52e0c4;
+            transform: translateY(-3px);
         }
     </style>
 </head>
@@ -108,12 +177,24 @@
     <header>
         <h1>Annanya Tiwary</h1>
         <nav>
+            <a href="#about">About</a>
             <a href="#education">Education</a>
             <a href="#skills">Skills</a>
             <a href="#projects">Projects</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
+
+    <div class="hero">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Hi, I'm Annanya Tiwary, a passionate tech enthusiast skilled in web development and programming.<br>Let's explore my journey together!</p>
+        <button class="btn">Download Resume</button>
+    </div>
+
+    <section id="about">
+        <h2>About Me</h2>
+        <p>I am a B.Tech student specializing in Computer Science at KL Deemed to be University. My expertise lies in creating impactful web applications, solving complex coding problems, and constantly learning new technologies to stay ahead in the tech world.</p>
+    </section>
 
     <section id="education">
         <h2>Education</h2>
@@ -123,20 +204,11 @@
 
     <section id="skills">
         <h2>Skills</h2>
-        <div class="skills">
-            <div class="skill">
-                <strong>Programming:</strong>
-                <div class="skill-bar"><div style="width: 90%;"></div></div>
-            </div>
-            <div class="skill">
-                <strong>Web Development:</strong>
-                <div class="skill-bar"><div style="width: 85%;"></div></div>
-            </div>
-            <div class="skill">
-                <strong>Tools & Technologies:</strong>
-                <div class="skill-bar"><div style="width: 80%;"></div></div>
-            </div>
-        </div>
+        <ul>
+            <li><strong>Programming:</strong> Java, Python, C</li>
+            <li><strong>Web Development:</strong> HTML, CSS, JavaScript, Django</li>
+            <li><strong>Tools & Technologies:</strong> Git, MySQL, Figma, IoT</li>
+        </ul>
     </section>
 
     <section id="projects">
@@ -155,13 +227,8 @@
         <p>LinkedIn: <a href="https://www.linkedin.com/in/annanyatiwary4" target="_blank">linkedin.com/in/annanyatiwary4</a></p>
     </section>
 
-    <script>
-        // Animate skill bars on load
-        window.onload = () => {
-            document.querySelectorAll('.skill-bar div').forEach(bar => {
-                bar.style.width = bar.style.width;
-            });
-        };
-    </script>
+    <footer>
+        <p>&copy; 2025 Annanya Tiwary. All Rights Reserved.</p>
+    </footer>
 </body>
 </html>
